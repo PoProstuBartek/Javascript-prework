@@ -1,11 +1,11 @@
 function printMessage(msg){
-	var div = document.createElement('div');
+	const div = document.createElement('div');
 	div.innerHTML = msg;
 	document.getElementById('messages').appendChild(div);
 }
 
 function printResult(msg){
-	var div = document.createElement('div');
+	const div = document.createElement('div');
 	div.innerHTML = msg;
 	document.getElementById('result').appendChild(div);
 }
@@ -15,7 +15,7 @@ function clearMessages(){
 }
 
 
-var argButtonName, buttonPaper, buttonRock, buttonScissors
+let argButtonName, buttonPaper, buttonRock, buttonScissors
 
 buttonRock = document.getElementById('button-rock');
 buttonRock.addEventListener('click', function(){ buttonClicked('rock'); });
@@ -27,11 +27,11 @@ buttonScissors = document.getElementById('button-scissors');
 buttonScissors.addEventListener('click', function(){ buttonClicked('scissors'); });
 
 
- function buttonClicked(argButtonName) {
+function buttonClicked(argButtonName) {
 	clearMessages();
 	console.log(argButtonName + ' został kliknięty');
 
-	var argComputerMove, argMoveId, argPlayerMove, computerMove, playerInput, playerMove, randomNumber;
+	let argComputerMove, argMoveId, argPlayerMove, computerMove, playerInput, playerMove, randomNumber;
 
 	/**
 	 * Wybór ruchu gracza
@@ -71,7 +71,7 @@ buttonScissors.addEventListener('click', function(){ buttonClicked('scissors'); 
 
 	playerMove = argButtonName;
 	console.log('wybór ruchu gracza to: ' + playerMove);
-	
+
 	console.log('ruch gracza to: ' + playerMove);
 	randomNumber = Math.floor(Math.random() * 3 + 1);
 	console.log('wylosowana liczba to: ' + randomNumber);
@@ -79,4 +79,4 @@ buttonScissors.addEventListener('click', function(){ buttonClicked('scissors'); 
 	console.log('ruch komputera to: ' + computerMove);
 	displayResult(playerMove, computerMove);
 
-  }
+}
