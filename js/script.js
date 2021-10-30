@@ -31,11 +31,12 @@ function buttonClicked(argButtonName) {
 	clearMessages();
 	console.log(argButtonName + ' został kliknięty');
 
-	let argComputerMove, argMoveId, argPlayerMove, computerMove, playerInput, playerMove, randomNumber;
-
 	/**
 	 * Wybór ruchu gracza
 	 */
+	
+	let argMoveId;
+
 	function getMoveName(argMoveId) {
 	console.log('wywołano funkcję getMoveName z argumentem: ' + argMoveId);
 		if (argMoveId == 1) {
@@ -53,6 +54,9 @@ function buttonClicked(argButtonName) {
 	/**
 	 * Wyświetlanie wyniku gry
 	 */
+	
+	let  argComputerMove,  argPlayerMove;
+
 	function displayResult(argPlayerMove, argComputerMove) {
 	console.log('wywołano funkcję displayResults z argumentami: ' + argPlayerMove + ', ' + argComputerMove);
 	if (argPlayerMove == 'paper' && argComputerMove == 'rock') {
@@ -69,13 +73,13 @@ function buttonClicked(argButtonName) {
 	printMessage('I have played ' + argComputerMove + ', to yours ' + argPlayerMove);
 	}
 
-	playerMove = argButtonName;
+	const playerMove = argButtonName;
 	console.log('wybór ruchu gracza to: ' + playerMove);
 
-	console.log('ruch gracza to: ' + playerMove);
-	randomNumber = Math.floor(Math.random() * 3 + 1);
+	let randomNumber = Math.floor(Math.random() * 3 + 1);
 	console.log('wylosowana liczba to: ' + randomNumber);
-	computerMove = getMoveName(randomNumber);
+
+	let computerMove = getMoveName(randomNumber);
 	console.log('ruch komputera to: ' + computerMove);
 	displayResult(playerMove, computerMove);
 
