@@ -4,13 +4,6 @@ function printMessage(msg){
   document.getElementById('messages').appendChild(div);
 }
 
-function printResult(msg){
-  const div = document.createElement('div');
-  div.innerHTML = msg;
-  document.getElementById('result').appendChild(div);
-}
-
-
 function clearMessages(){
   document.getElementById('messages').innerHTML = '';
 }
@@ -23,6 +16,9 @@ buttonPaper.addEventListener('click', function(){ buttonClicked('paper'); });
 
 const buttonScissors = document.getElementById('button-scissors');
 buttonScissors.addEventListener('click', function(){ buttonClicked('scissors'); });
+
+let playerScore = 0; 
+let computerScore = 0;
 
 function buttonClicked(argButtonName) {
   clearMessages();
@@ -40,10 +36,7 @@ function buttonClicked(argButtonName) {
       return 'scissors';
     }  
   }
-
   // Wyświetlanie wyniku gry
-  let	playerScore =  0;
-  let computerScore = 0;
   function displayResult(argPlayerMove, argComputerMove) {
     console.log('wywołano funkcję displayResults z argumentami: ' + argPlayerMove + ', ' + argComputerMove);
     if (argPlayerMove == 'paper' && argComputerMove == 'rock') {
@@ -63,8 +56,14 @@ function buttonClicked(argButtonName) {
     }
     printMessage('I have played ' + argComputerMove + ', to yours ' + argPlayerMove);
   }
-
+  
   // TO DO: tablica wyników
+  const playerWins = document.querySelector('.player');
+  const computerWins = document.querySelector('.computer');
+  function countScore(){
+    playerWins.innerHTML ='PLAYER SCORE: ' + playerScore;
+    computerWins.innerHTML ='COMPUTER SCORE: ' + computerScore;
+  }
 
   console.log('wybór ruchu gracza to: ' + argButtonName);
 
@@ -74,5 +73,5 @@ function buttonClicked(argButtonName) {
   const computerMove = getMoveName(randomNumber);
   console.log('ruch komputera to: ' + computerMove);
   displayResult(argButtonName, computerMove);
-  printResult('Player: ' + playerScore + '  vs   Computer ' + computerScore);
+  countScore();
 }
