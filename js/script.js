@@ -57,7 +57,7 @@ function buttonClicked(argButtonName) {
     printMessage('I have played ' + argComputerMove + ', to yours ' + argPlayerMove);
   }
   
-  // TO DO: tablica wyników
+  // Tablica wyników
   const playerWins = document.querySelector('.player');
   const computerWins = document.querySelector('.computer');
   function countScore(){
